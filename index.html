@@ -1,0 +1,402 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jana Sayrielle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Source Serif 4", Georgia, serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 400;
+      color: #000;
+    }
+
+    p {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #f06a9b;
+    }
+
+    header {
+      width: 100%;
+      padding: 25px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .logo p {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 30px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* === HERO === */
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      background: #fff0f5; /* soft pink background */
+    }
+
+    .hero-wrapper {
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: center;
+      padding: 0 50px;
+      width: 100%;
+    }
+
+    .hero-text h2 {
+      font-size: 25px; 
+      color: #000;     
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 35px;
+      max-width: 480px;
+    }
+
+    .hero-text .btn {
+      padding: 13px 34px;
+      border: none;
+      border-radius: 30px;
+      background: #f06a9b;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .hero-text .btn:hover {
+      background: #e05588;
+      transform: translateY(-3px);
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.03);
+    }
+
+    /* === ABOUT === */
+    #about {
+      background: #fff; /* white for full width */
+      padding: 100px 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .intro-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .intro-row img {
+      width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    }
+
+    .intro-row .text {
+      flex: 1;
+    }
+
+    /* === BLOGS / FEATURES WITH READ MORE === */
+    #blogs {
+      background-color: #fff0f5; /* soft pink for continuity */
+      padding: 100px 50px;
+    }
+
+    #blogs h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-grid .feature {
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      padding-bottom: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-grid .feature img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .feature-grid .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .feature-grid .feature h3 {
+      margin: 15px 0 10px;
+      font-size: 20px;
+    }
+
+    .feature-grid .feature .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 28px;
+      border-radius: 30px;
+      background: #f06a9b;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .feature-grid .feature .btn:hover {
+      background: #e05588;
+      transform: translateY(-3px);
+    }
+
+    /* === CTA === */
+    .cta {
+      background: #fff; /* white */
+      text-align: center;
+      padding: 80px 50px;
+      border-top: 1px solid #eee;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 36px;
+      border-radius: 30px;
+      background: #f06a9b;
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #e05588;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+      color: #777;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    @media (max-width: 992px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .hero-text h2 {
+        font-size: 28px;
+      }
+
+      .hero-text p {
+        max-width: 100%;
+        font-size: 14px;
+      }
+
+      .hero-image img {
+        max-width: 90%;
+        margin: 40px auto 0;
+      }
+
+      .intro-row {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .intro-row img {
+        margin-bottom: 20px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="IMAGES/logo.png" alt="Logo">
+    <div>
+      <h1>Jana Sayrielle</h1>
+      <p>CONTENT CREATOR</p>
+    </div>
+  </div>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#about">ABOUT ME</a>
+    <a href="#blogs">BLOG</a>
+    <a href="#">CONTACT</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-text">
+      <h2>WELCOME TO MY CREATIVE SPACE</h2>
+      <h1>Hello,<br>I’m Jana Sayrielle!</h1>
+      <p>This is where I share ideas, projects, and small moments that inspire what I create.</p>
+      <button class="btn" onclick="location.href='#about'">ABOUT ME</button>
+    </div>
+    <div class="hero-image">
+      <img src="IMAGES/author-pic.jpg" alt="Jana's Instax">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="intro-row">
+    <img src="IMAGES/pic2.png" alt="Jana smiling with camera">
+    <div class="text">
+      <h2>Hello, I’m <b>Jana</b> ♡</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio inventore, sunt modi quaerat nesciunt quia, beatae natus dolorum quis nobis aut est qui ab rerum dignissimos, ipsum molestias unde tempora?</p>
+    </div>
+  </div>
+</section>
+
+<!-- === BLOG SECTION WITH READ MORE BUTTONS === -->
+<section id="blogs">
+  <div class="container">
+    <h2>My Blogs</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <img src="IMAGES/blog1.jpg" alt="Blog 1">
+        <h3>From Pens to Keyboards: How Technology Changed My Way of Learning</h3>
+        <a href="blog1.html" class="btn">Read More</a>
+      </div>
+      <div class="feature">
+        <img src="IMAGES/blog2.jpg" alt="Blog 2">
+        <h3>From Silent Viewer to the Girl on Your Screen</h3>
+        <a href="blog2.html" class="btn">Read More</a>
+      </div>
+      <div class="feature">
+        <img src="IMAGES/blog3.jpg" alt="Blog 3">
+        <h3>From Dolls to Dreams: The Story of Jana Sayrielle G. Abordo</h3>
+        <a href="blog3.html" class="btn">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Let’s Stay Connected</h2>
+  <p>Join me and explore more stories and ideas.</p>
+  <a href="#">Get Started</a>
+</section>
+
+<footer>
+  © 2026 Jana Abordo — ITAD
+</footer>
+
+</body>
+</html>
